@@ -1,0 +1,39 @@
+<div fxLayoutAlign="center center" fxFill>
+    <mat-card fxFlex="25">
+        <mat-toolbar style="background-color: white;">Đăng ký</mat-toolbar>
+        <form [formGroup]="registerForm" fxLayout="stretch" fxLayout="column">
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Ex. Cuongnn194239" formControlName="email">
+              </mat-form-field>
+            
+            <mat-form-field appearance="fill">
+                <mat-label>Tên đẩy đủ</mat-label>
+                <input matInput placeholder="Ex. Nguyễn Năng Cường" formControlName="fullname">
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill">
+                <mat-label>Mật khẩu</mat-label>
+                <input matInput placeholder="" type="password" formControlName="password">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Nhập lại mật khẩu</mat-label>
+                <input matInput placeholder="" type="password" formControlName="passwordCf">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Ngày sinh</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker">
+                </mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-checkbox class="registerForm_checkbox">Tôi đồng ý với các điều khoản đã cho</mat-checkbox>
+
+            <button mat-stroked-button type="submit">Đăng ký</button>
+        </form>
+    </mat-card>
+</div>

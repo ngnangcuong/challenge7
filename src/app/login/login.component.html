@@ -1,0 +1,22 @@
+<div fxLayoutAlign="center center" fxFlexFill>
+    <mat-card fxFlex="25">
+        <mat-toolbar style="background-color: white;">Đăng nhập</mat-toolbar>
+        <form class="loginForm" fxLayoutAlign="stretch" fxLayout="column" [formGroup]="loginForm">
+            <mat-form-field appearance="fill">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="Ex. Cuongnn194239" formControlName="email">
+            </mat-form-field>
+          
+            <mat-form-field appearance="fill">
+                <mat-label>Mật khẩu</mat-label>
+                <input matInput placeholder="" type="password" formControlName="password">
+            </mat-form-field>
+
+            <div class="loginForm_helper" fxLayoutAlign="space-between">
+                <a href="" class="loginForm_helper_link">Đổi mật khẩu</a>
+                <a href="" class="loginForm_helper_link">Quên mật khẩu</a>
+            </div>
+            <button mat-stroked-button type="submit">Đăng nhập</button>
+        </form>
+    </mat-card>
+</div>
