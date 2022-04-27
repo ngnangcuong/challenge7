@@ -2,29 +2,29 @@
     <mat-card fxFlex="25">
         <mat-toolbar style="background-color: white;">Đăng ký</mat-toolbar>
         <form [formGroup]="registerForm" fxLayout="stretch" fxLayout="column">
-            <mat-form-field appearance="fill">
+            <mat-form-field appearance="outline">
                 <mat-label>Email</mat-label>
-                <input matInput placeholder="Ex. Cuongnn194239" formControlName="email">
+                <input matInput [(ngModel)]="registerObj.email" placeholder="Ex. Cuongnn194239" formControlName="email">
               </mat-form-field>
-            
-            <mat-form-field appearance="fill">
+
+            <mat-form-field appearance="outline">
                 <mat-label>Tên đẩy đủ</mat-label>
-                <input matInput placeholder="Ex. Nguyễn Năng Cường" formControlName="fullname">
+                <input matInput [(ngModel)]="registerObj.name" placeholder="Ex. Nguyễn Năng Cường" formControlName="name">
             </mat-form-field>
             
-            <mat-form-field appearance="fill">
+            <mat-form-field appearance="outline">
                 <mat-label>Mật khẩu</mat-label>
-                <input matInput placeholder="" type="password" formControlName="password">
+                <input matInput [(ngModel)]="registerObj.password" type="password" formControlName="password">
             </mat-form-field>
 
-            <mat-form-field appearance="fill">
+            <mat-form-field appearance="outline">
                 <mat-label>Nhập lại mật khẩu</mat-label>
-                <input matInput placeholder="" type="password" formControlName="passwordCf">
+                <input matInput [(ngModel)]="registerObj.passwordConfirm" type="password" formControlName="passwordCf" pattern="{{ registerObj.password }}">
             </mat-form-field>
 
-            <mat-form-field appearance="fill">
+            <mat-form-field appearance="outline">
                 <mat-label>Ngày sinh</mat-label>
-                <input matInput [matDatepicker]="picker">
+                <input matInput [matDatepicker]="picker" formControlName="date">
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matSuffix [for]="picker">
                 </mat-datepicker-toggle>
@@ -33,7 +33,7 @@
 
             <mat-checkbox class="registerForm_checkbox">Tôi đồng ý với các điều khoản đã cho</mat-checkbox>
 
-            <button mat-stroked-button type="submit">Đăng ký</button>
+            <button mat-stroked-button type="submit" [disabled]="registerForm.invalid" (click)="register()">Đăng ký</button>
         </form>
     </mat-card>
 </div>
