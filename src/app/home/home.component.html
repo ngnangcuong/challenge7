@@ -1,3 +1,13 @@
-<div>
-    <app-post *ngFor="let post of postList; let i = index" [post]="post"></app-post>
+<div class="home">
+    <app-header class="home_header"></app-header>
+
+    <div class="home_body" fxLayout="column" fxLayoutAlign="space-around center"
+            infinite-scroll
+            (scrolled)="onScrolledDown($event)">
+        <app-post *ngFor="let post of postList" [post]="post" class="home_post" style="width: 65%;"></app-post>
+    </div>
+    
+    <div class="home_footer">
+
+    </div>
 </div>

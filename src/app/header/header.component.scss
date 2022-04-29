@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+.header mat-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 32px;
+}
+
+.mat-form-field-wrapper.ng-tns-c97-0 {
+    height: 100%;
+    margin-bottom: -1.34375em;
+}
+
+.header_mat-form::placeholder {
+    color: #555;
+}
+
+mat-card-subtitle a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+mat-card-subtitle a:hover {
+    color: #777;
+}

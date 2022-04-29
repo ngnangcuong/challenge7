@@ -1,0 +1,29 @@
+<div class="header">
+    <mat-card  fxFlex="row">
+        <form class="header_search">
+            <mat-form-field appearance="fill" [formGroup]="searchForm" class="header_mat-form" style="width: 350px; margin-top: 16px;">
+              <mat-label>Tìm kiếm trong blog</mat-label>
+              <input type="text"
+                     placeholder="Tìm kiếm"
+                     aria-label="Tìm kiếm trong blog"
+                     matInput
+                     formControlName="searchBox"
+                     [matAutocomplete]="auto"
+                     (click)="addSuggestion(this.searchForm.get('searchBox')!.value)"
+                     >
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </form>
+
+          <mat-card-subtitle>
+            <a href="">
+              Cuong Nguyen Nang
+
+            </a>
+          </mat-card-subtitle>
+    </mat-card>
+</div>

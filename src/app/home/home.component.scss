@@ -1,0 +1,23 @@
+.home_header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.home_body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 85px;
+    left: 0;
+    right: 0;
+    background-color: #F0F2F5;
+
+}
+
+.home_post {
+    margin: 16px 0;
+}

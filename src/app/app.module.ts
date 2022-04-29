@@ -18,6 +18,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { PostComponent } from './post/post.component';
+import { HeaderComponent } from './header/header.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,8 @@ import { PostComponent } from './post/post.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    PostComponent
+    PostComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +45,8 @@ import { PostComponent } from './post/post.component';
     MatNativeDateModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatAutocompleteModule,
+    InfiniteScrollModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
