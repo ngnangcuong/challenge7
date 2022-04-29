@@ -2,10 +2,15 @@
     <app-header class="home_header"></app-header>
 
     <div class="home_body" fxLayout="column" fxLayoutAlign="space-around center"
+            *ngIf="postList.length; else NotFoundPost"
             infinite-scroll
             (scrolled)="onScrolledDown($event)">
         <app-post *ngFor="let post of postList" [post]="post" class="home_post" style="width: 65%;"></app-post>
+
     </div>
+    <ng-template #NotFoundPost>
+        <p>There's no result as expected</p>
+    </ng-template>
     
     <div class="home_footer">
 

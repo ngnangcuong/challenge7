@@ -1,79 +1,79 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from '../services/post.service';
+import { UserService } from '../services/user.service';
+interface Post {
+  Id: Number;
+  Email: String;
+  Content: String;
+}
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
+
 export class HomeComponent implements OnInit {
 
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService,
+             private activedRoute: ActivatedRoute,
+             private router: Router,
+             private userService: UserService) { }
 
-  postList = [
-    {
-      id: 1,
-      content: 'First post',
-      email: 'Cuong'
-    },
-    {
-      id: 2,
-      content: 'Second post',
-      email: 'Cuong'
-    },
-    {
-      id: 3,
-      content: 'Third Post',
-      email: 'Cuong'
-    },
-    {
-      id: 4,
-      content: 'Fourth Post',
-      email: 'Cuong'
-    },
-    {
-      id: 5,
-      content: 'Fifth Post',
-      email: 'Cuong'
-    },
-    {
-      id: 6,
-      content: 'Sixth Post',
-      email: 'Cuong'
-    },
-    {
-      id: 7,
-      content: 'Seventh Post',
-      email: 'Cuong'
-    },
-  ]
+  query: string = '';
+  postList = new Array<Post>();
 
   ngOnInit(): void {
-    // this.postService.getAllPost();
-    // this.postList = this.postService.postList;
+    if(!this.userService.isLogedIn()) {
+      this.router.navigateByUrl("/login");
+      return
+    }
+    this.activedRoute.queryParams.subscribe(data => {
+      this.query = data['search'];
+    })
+    if (this.query) {
+      this.postService.SearchPost(this.query).subscribe(data => {
+        if(data) {
+          data.forEach(element => {
+            this.postList.push(element);
+          });
+
+        };
+      })
+    } else {
+      this.postService.InitPost().subscribe(data => {
+        data.forEach(element => {
+          this.postList.push(element);
+        });
+      });
+
+    };
   }
 
   page = 1;
   offset = 10;
 
   onScrolledDown(ev: any) {
-    this.page += 1;
-    this.appendItems();
-  }
+    if(!this.query) {
+      this.page += 1;
+      this.appendItems();
 
-  appendItems() {
-    this.addItems("push");
-  }
-
-  addItems(_method: string) {
-    for (let i = 0; i < this.offset; ++i) {
-      if( _method === 'push'){
-        this.postList.push({
-          id: 8,
-          content: 'Eighth Post',
-          email: 'Tham'
-        });
-      }
     }
+  }
+
+  private appendItems() {
+    this.addItems();
+  }
+
+  private addItems() {
+    this.postService.LoadMorePost(this.page).subscribe(data => {
+      if (data) {
+
+        data.forEach(element => {
+          this.postList.push(element);
+        })
+      };
+    });
   }
 }

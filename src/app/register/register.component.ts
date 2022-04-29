@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -9,7 +10,9 @@ import { UserService } from '../services/user.service';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private userService: UserService) { }
+  constructor(private fb: FormBuilder,
+             private userService: UserService,
+             private router: Router) { }
   
   ngOnInit(): void {
   }
@@ -19,6 +22,8 @@ export class RegisterComponent implements OnInit {
     name: '',
     password: '',
     passwordConfirm:'',
+    date: new Date(),
+    address: '',
   }
   
   registerForm: FormGroup = this.fb.group({
@@ -35,6 +40,7 @@ export class RegisterComponent implements OnInit {
       Validators.required,
     ])),
     'date': new FormControl(),
+    'address': new FormControl(),
   })
 
   register() {

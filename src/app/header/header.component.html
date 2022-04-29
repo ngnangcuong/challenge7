@@ -10,6 +10,7 @@
                      formControlName="searchBox"
                      [matAutocomplete]="auto"
                      (click)="addSuggestion(this.searchForm.get('searchBox')!.value)"
+                     name="search"
                      >
               <mat-autocomplete #auto="matAutocomplete">
                 <mat-option *ngFor="let option of filteredOptions | async" [value]="option">

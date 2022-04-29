@@ -24,14 +24,19 @@
 
             <mat-form-field appearance="outline">
                 <mat-label>Ngày sinh</mat-label>
-                <input matInput [matDatepicker]="picker" formControlName="date">
+                <input matInput [matDatepicker]="picker" formControlName="date" [(ngModel)]="registerObj.date">
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matSuffix [for]="picker">
                 </mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
 
-            <mat-checkbox class="registerForm_checkbox">Tôi đồng ý với các điều khoản đã cho</mat-checkbox>
+            <mat-form-field appearance="outline">
+                <mat-label>Dia chi</mat-label>
+                <input matInput type="text" [(ngModel)]="registerObj.address" formControlName="address">
+            </mat-form-field>
+
+            <mat-checkbox class="registerForm_checkbox" required>Tôi đồng ý với các điều khoản đã cho</mat-checkbox>
 
             <button mat-stroked-button type="submit" [disabled]="registerForm.invalid" (click)="register()">Đăng ký</button>
         </form>

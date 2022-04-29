@@ -16,28 +16,21 @@ export class PostService {
 
   constructor(private http: HttpClient, private userService: UserService) { }
 
-  headerClient = new HttpHeaders({
-    'Authentication': 'Bear ' + this.userService.token,
-  })
 
-  InitPost(): Observable<Post> {
-    return this.http.get<Post>("http://localhost:3000/post", { headers: this.headerClient})
+  InitPost(): Observable<Post[]> {
+    return this.http.get<Post[]>("http://localhost:3000/post");
   }
 
-  LoadMorePost(page: Number): Observable<Post> {
+  LoadMorePost(page: Number): Observable<Post[]> {
     const params = new HttpParams()
       .set('page', page.toString());
 
-    return this.http.get<Post>("http://localhost:3000/post", {
-      headers: this.headerClient,
+    return this.http.get<Post[]>("http://localhost:3000/post?page=" + page, {
       params: params,
     });
   }
 
-  SearchPost(keyword: string): Observable<Post> {
-    return this.http.get<Post>("http://localhost:3000/post", {
-      headers: this.headerClient,
-      params: new HttpParams().set('keyword', keyword),
-    })
+  SearchPost(keyword: string): Observable<Post[]> {
+    return this.http.get<Post[]>("http://localhost:3000/post/search/" + keyword);
   }
 }

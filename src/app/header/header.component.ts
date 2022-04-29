@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { Observable, startWith, map, of } from 'rxjs';
 import { SearchService } from '../services/search.service';
@@ -9,6 +9,9 @@ import { SearchService } from '../services/search.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
+  @Input()
+  emailUser: string = '';
 
   constructor(private fb: FormBuilder, private searchService: SearchService) { }
 

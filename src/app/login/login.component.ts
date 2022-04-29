@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -9,7 +10,9 @@ import { UserService } from '../services/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private userService: UserService) { }
+  constructor(private fb: FormBuilder,
+             private userService: UserService,
+             private router: Router) { }
 
   loginForm = this.fb.group({
     'email': new FormControl('', [
@@ -29,10 +32,10 @@ export class LoginComponent implements OnInit {
 
     this.userService.login(postBody);
     
-    console.log(this.userService.token ? this.userService.token : this.userService.errorMessage);
     if (this.userService.errorMessage) {
       this.loginForm.reset();
     }
+    this.router.navigateByUrl("/");
   }
 
 }
