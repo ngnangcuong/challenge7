@@ -30,12 +30,11 @@ export class LoginComponent implements OnInit {
       password: this.loginForm.get('password')!.value,
     }
 
-    this.userService.login(postBody);
+    this.userService.login(postBody).subscribe(() => {
+      this.router.navigateByUrl("/");
+
+    });
     
-    if (this.userService.errorMessage) {
-      this.loginForm.reset();
-    }
-    this.router.navigateByUrl("/");
   }
 
 }

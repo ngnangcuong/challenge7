@@ -15,11 +15,12 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { RegisterComponent } from './register/register.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatMenuModule} from '@angular/material/menu'; 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { PostComponent } from './post/post.component';
 import { HeaderComponent } from './header/header.component';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { AuthInterceptor } from './auth.interceptor';
 
@@ -48,6 +49,7 @@ import { AuthInterceptor } from './auth.interceptor';
     HttpClientModule,
     MatAutocompleteModule,
     InfiniteScrollModule,
+    MatMenuModule,
   ],
   providers: [
     {

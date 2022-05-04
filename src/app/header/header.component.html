@@ -1,7 +1,7 @@
 <div class="header">
     <mat-card  fxFlex="row">
         <form class="header_search">
-            <mat-form-field appearance="fill" [formGroup]="searchForm" class="header_mat-form" style="width: 350px; margin-top: 16px;">
+            <mat-form-field appearance="outline" [formGroup]="searchForm" class="header_mat-form" style="width: 350px; margin-top: 16px;">
               <mat-label>Tìm kiếm trong blog</mat-label>
               <input type="text"
                      placeholder="Tìm kiếm"
@@ -21,10 +21,12 @@
           </form>
 
           <mat-card-subtitle>
-            <a href="">
-              Cuong Nguyen Nang
+            <button mat-button [matMenuTriggerFor]="menu">Nguyen Nang Cuong</button>
+              <mat-menu #menu="matMenu" xPosition="before">
+                <button mat-menu-item>Trang cá nhân</button>
+                <button mat-menu-item (click)="logout()">Đăng xuất</button>
+              </mat-menu>
 
-            </a>
           </mat-card-subtitle>
     </mat-card>
 </div>
