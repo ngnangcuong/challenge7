@@ -1,0 +1,28 @@
+<div class="personalInfo_wrapper">
+    <div class="personalInfo_item">
+        <h3 class="personalInfo_item-title">Email:</h3>
+        <p class="personalInfo_item-info">{{ userEmail }}</p>
+        
+    </div>
+    <div class="personalInfo_item">
+        <h3 class="personalInfo_item-title">Name:</h3>
+        <p class="personalInfo_item-info" *ngIf="!isEditable">{{ username }}</p>
+        <input type="text"
+        *ngIf="isEditable"
+        [formControl]="nameControl"
+        >
+        <div class="personalInfo_item-controls" *ngIf="myEmail == userEmail" >
+            <button mat-stroked-button color="primary" (click)="handleEditField()">Chỉnh sửa</button>
+            <button mat-stroked-button color="basic"
+            *ngIf="isEditable"
+            (click)="isEditable=false">Hủy bỏ</button>
+        </div>
+    </div>
+    <div class="personalInfo_item">
+        <h3 class="personalInfo_item-title">Password:</h3>
+        <p class="personalInfo_item-info"></p>
+        <div class="personalInfo_item-controls" *ngIf="myEmail == userEmail">
+            <button mat-stroked-button color="primary">Chỉnh sửa</button>
+        </div>
+    </div>
+</div>

@@ -50,11 +50,12 @@ export class RegisterComponent implements OnInit {
       password: this.registerObj.password,
     };
 
-    this.userService.register(user);
-    if (this.userService.errorMessage != 'Create user successfully') {
-      this.userService.errorMessage = '';
+    this.userService.register(user).subscribe(data => {
+      this.router.navigateByUrl('/login');
+    }, error => {
       this.registerForm.reset();
-    }
+    })
+
   }
 
 }

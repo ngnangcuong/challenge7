@@ -1,11 +1,16 @@
 <div class="home">
-    <app-header class="home_header"></app-header>
+    <app-header class="home_header" [surName]="userData.name"></app-header>
 
     <div class="home_body" fxLayout="column" fxLayoutAlign="space-around center"
-            *ngIf="postList.length; else NotFoundPost"
             infinite-scroll
             (scrolled)="onScrolledDown($event)">
-        <app-post *ngFor="let post of postList" [post]="post" class="home_post" style="width: 65%;"></app-post>
+        <app-post *ngFor="let post of postList | async"
+                [post]="post"
+                class="home_post"
+                style="width: 50%;"
+                (isDeleted)="handleDeletePost($event)"
+                [userEmail]="userData.email"
+                [userRole]="userData.role"></app-post>
 
     </div>
     <ng-template #NotFoundPost>

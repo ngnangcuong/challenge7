@@ -1,0 +1,29 @@
+<div class="avatar_wrapper">
+    <div class="avatar_info">
+        <div class="avatar_image">
+            
+        </div>
+        <div class="avatar_name">
+            <p>{{ username }}</p>
+            <p>({{ userEmail }})</p>
+        </div>
+    </div>
+
+    <div class="avatar_select">
+        <div (click)="changeModeToTimestamp()">
+            Dòng thời gian
+        </div>
+        <div (click)="changeModeToIntro()">
+            Giới thiệu
+        </div>
+        <div>
+            Bạn bè
+        </div>
+        <div>
+            Hình ảnh
+        </div>
+        <div>
+            Kho
+        </div>
+    </div>
+</div>

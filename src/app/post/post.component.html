@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
     <mat-card>
         <mat-card-header>
           <mat-card-title>
@@ -15,4 +15,58 @@
           <button mat-button>DELETE</button>
         </mat-card-actions>
       </mat-card>
+</div> -->
+
+<div class="post">
+  <div class="post_header">
+    <div class="post_header_left">
+      <div class="post_header_avatar">
+        <img src="" alt="">
+      </div>
+      <div class="post_header_info">
+        <div class="post_header_name">
+          <a [routerLink]="['/personal', post.email]">{{ post.email }}</a>
+        </div>
+        <div class="post_header_time">
+          <span [routerLink]="['/post', post.id]">{{getTime()}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="post_header_right">
+      <div mat-button [matMenuTriggerFor]="menu">Menu</div>
+        <mat-menu #menu="matMenu" class="post_header_options">
+          <div mat-menu-item class="post_header_option" (click)="renderEditPost(post.id, post.email)">Chỉnh sửa</div>
+          <div mat-menu-item class="post_header_option" (click)="deletePost(post.id, post.email)">Xóa</div>
+        </mat-menu>
+    </div>
+  </div>
+
+  <div class="post_body">
+    <div class="post_body_content">
+      <p *ngIf="!isEditable; else editArea">{{ post.content }}</p>
+      <ng-template #editArea
+       class="post_editArea">
+        <textarea name="" id="" cols="69" rows="7"
+         [formControl]="editForm"
+         [(ngModel)]="editFormValue">{{ post.content }}</textarea>
+        <div class="post_editArea_controls">
+          <button mat-stroked-button color="primary" (click)="editPost(post.id, post.email)">Chỉnh sửa</button>
+          <button mat-stroked-button color="basic" (click)="isEditable=false">Hủy bỏ</button>
+        </div>
+      </ng-template>
+    </div>
+
+    <div class="post_body_image">
+
+    </div>
+  </div>
+
+  <div class="post_footer">
+    <div class="post_footer_react">Like</div>
+
+    <div class="post_footer_comment">Comment</div>
+
+    <div class="post_footer_share">Share</div>
+  </div>
 </div>

@@ -1,0 +1,31 @@
+<div class="createPost_wrapper">
+    <div class="createPost_header">
+        <button class="createPost_choice">Tạo bài đăng</button>
+        <button class="createPost_choice">Hình ảnh/Video</button>
+        <button class="createPost_choice">Video trực tiếp</button>
+        <button class="createPost_choice">Sự kiện trong đời</button>
+    </div>
+
+    <div class="createPost_body">
+        <div class="createPost_avatar">
+
+        </div>
+        <form class="createPost_textarea"
+        [formGroup]="createPostForm" >
+            <textarea matInput
+            name="createPost"
+            cols="80" rows=""
+            placeholder="Bạn đang nghĩ gì?"
+            formControlName="createPost"></textarea>
+            <button formControlName="submitButton"
+                    (click)="createPost(this.createPostForm.get('createPost')!.value)"
+                    class="createPost_submit"
+                    mat-stroked-button color="primary">Đăng</button>    
+        </form>
+    </div>
+
+    <div class="createPost_footer">
+        <button>Hình ảnh/Video</button>
+        <button>Gắn thẻ bạn bè</button>
+    </div>
+</div>

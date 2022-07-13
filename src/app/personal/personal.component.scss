@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    transition: 0.14s;
+}
+
+.header {
+    z-index: 2;
+}
+
+.personal_wrapper {
+    padding: 0 96px 0 48px;
+    background-color: rgb(236, 236, 236);
+    z-index: 1;
+}
+
+.personal_header {
+
+}
+
+.personal_body {
+    display: flex;
+
+}
+
+.personal_body-left {
+    height: 500px;
+    flex: 1;
+    background-color: #FFF;
+    margin: 12px 12px 0 0;
+}
+
+.personal_body-right {
+    flex: 2;
+    margin: 24px 0 0 12px;
+}
+
+.personal_body-right-2 {
+    flex: 2;
+    margin: 24px 0 0 12px;
+}
+
+.personal_body_post {
+    margin: 16px 0;
+}

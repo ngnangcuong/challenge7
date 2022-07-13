@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.personalInfo_wrapper {
+    background-color: #fff;
+    width: 100%;
+    height: max-content;
+    padding: 16px;
+}
+
+.personalInfo_item:last-child {
+    border-bottom: 1px solid #EEE;
+
+}
+
+.personalInfo_item {
+    display: flex;
+    align-items: center;
+    margin: 4px 0;
+    border-top: 1px solid #EEE;
+}
+
+.personalInfo_item-title {
+    margin-right: 8px;
+}
+
+.personalInfo_item-info {
+    margin-right: 24px;
+}
+
+.personalInfo_item-controls {
+    display: flex;
+    align-items: center;
+}

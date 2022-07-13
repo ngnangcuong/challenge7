@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 .header mat-card {
     display: flex;
@@ -25,4 +26,94 @@ mat-card-subtitle a {
 
 mat-card-subtitle a:hover {
     color: #777;
+}
+
+// Preview beta
+.header_test {
+    // margin-top: 50px;
+    padding: 0 20px;
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFF;
+    box-shadow: 0px 2px 2px #AAA;
+}
+
+.header_left {
+    width: 35%;
+
+}
+
+.header_right {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.header_right > div {
+    padding: 12px;
+    background-color: #FFF;
+    border-radius: 18px;
+    transition: 0.14s;
+    margin: 0 3px;
+    font-weight: 500;
+    color: #555
+}
+
+.header_right > div:hover {
+    background-color: #EEE;
+    // color: rgb(117, 153, 252);
+    cursor: pointer;
+}
+
+.header_search_test {
+}
+
+.header_search_outline {
+    width: 100%;
+}
+
+.header_search_input{
+    outline: none;
+    border: none;
+    width: 100%;
+    padding: 12px 8px;
+    border: 2px solid #AAA;
+    border-radius: 18px;
+    width: 100%;
+    transition: 0.1s;
+}
+.header_search_input:hover {
+    border: 2px solid #333;
+}
+
+.header_search_input:focus {
+    border: 2px solid rgb(74, 108, 202);
+}
+
+.header_right_username {
+    color: #555;
+    font-weight: 500 ;
+}
+.header_right_username > a {
+    color: #555;
+    text-decoration: none;
+}
+
+.header_right_home {
+    margin: 0 3px;
+
+}
+.header_right_link {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+}
+.header_right_lgoout {
+    margin: 0 3px;
+
 }

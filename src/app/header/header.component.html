@@ -1,4 +1,4 @@
-<div class="header">
+<!-- <div class="header">
     <mat-card  fxFlex="row">
         <form class="header_search">
             <mat-form-field appearance="outline" [formGroup]="searchForm" class="header_mat-form" style="width: 350px; margin-top: 16px;">
@@ -29,4 +29,35 @@
 
           </mat-card-subtitle>
     </mat-card>
+</div> -->
+
+<div class="header_test">
+  <div class="header_left">
+    <form class="header_search_test">
+
+      <input type="text"
+        matInput
+        class="header_search_input"
+        placeholder="Tìm kiếm trong blog"
+        [formControl]="searchBox"
+        (click)="addSuggestion(this.searchBox.value)"
+        name="search"
+        [(ngModel)]="searchKeyword">
+          
+    </form>
+  </div>
+
+  <div class="header_right">
+    <div class="header_right_username">
+      <a [routerLink]="['personal', email]">{{ surName }}</a >
+    </div>
+
+    <div class="header_right_home">
+      <a [routerLink]="['/']" class="header_right_link">Trang chủ</a>
+    </div>
+
+    <div class="header_right_logout" (click)="logout()">
+      <span>Đăng xuất</span>
+    </div>
+  </div>
 </div>

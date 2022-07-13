@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    transition: 0.14s;
+}
+
+.post {
+    width: 100%;
+    padding: 12px 12px 0 12px;
+    background-color: #FFF;
+    box-shadow: 0 1px 2px #777;
+}
+
+.post_header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post_header_left {
+    display: flex;
+}
+
+.post_header_avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #555;
+    margin: 0 3px;
+    cursor: pointer;
+    opacity: 1;
+}
+.post_header_avatar:hover {
+    opacity: 0.9;
+
+}
+.post_header_info {
+    margin: 0 3px;
+}
+.post_header_name {
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+    opacity: 1;
+}
+.post_header_name > a {
+    text-decoration: none;
+    color: #333;
+
+}
+.post_header_name:hover {
+    opacity: 0.9;
+}
+.post_header_time {
+    color: #777;
+}
+
+.post_header_right {
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.post_header_right:hover > div {
+    opacity: 0.7;
+}
+
+.post_header_option:hover {
+    background-color: #DDD;
+}
+
+.post_body {
+    margin: 4px 4px 0 4px;
+    border-bottom: 1px solid #AAA;
+}
+.post_body_content {
+    font-size: 14px;
+}
+
+.post_editArea {
+
+}
+
+.post_editArea_controls {
+    display: flex;
+    justify-content: flex-end;
+    margin: 4px 0;
+}
+
+.post_editArea_controls > button {
+    margin: 0 4px;
+}
+
+.post_body_image {
+
+}
+
+.post_footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 36px;
+    color: #555;
+    font-weight: 400;
+    line-height: 36px;
+    align-items: center;
+}
+
+.post_footer > div {
+    flex: 1;
+    text-align: center;
+    text-justify: auto;
+    background-color: inherit;
+    transition: 0.14s;
+    cursor: pointer;
+    height: 100%;
+}
+
+.post_footer > div:hover {
+    background-color: #EEE;
+}
+
+.post_footer_react {
+   
+}
+.post_footer_comment{
+
+}
+.post_footer_share{
+
+}

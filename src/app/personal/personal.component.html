@@ -1,0 +1,37 @@
+<app-header class="header"></app-header>
+<div class="personal_wrapper">
+    <div class="personal_header">
+        <app-personal-avatar [username]="username"
+            [userEmail]="userEmail"
+            (mode)="changeMode($event)"></app-personal-avatar>
+    
+    </div>
+    
+    <div class="personal_body">
+        <div class="personal_body-left">
+            
+        </div>
+        
+        <div class="personal_body-right" *ngIf="mode == 'timestamp'">
+            <app-create-post class="personal_body_create"
+                *ngIf="myEmail==userEmail"
+                (newPost)="handleNewPost($event)"></app-create-post>
+            <div *ngIf="myPosts | async; else loading">
+                <div *ngFor="let post of myPosts | async"
+                    class="personal_body_post">
+                    <app-post [post]="post" [userEmail]="myEmail" (isDeleted)="handleDeletePost($event)"></app-post>
+                </div>
+
+            </div>
+            <ng-template #loading style="text-align: center; color: #fff;">Loading...</ng-template>
+        </div>
+        
+        <div class="personal_body-right-2" *ngIf="mode == 'intro'">
+            <app-personal-info [userEmail]="userEmail"
+                            [username]="username"
+                            [myEmail]="myEmail"
+                            class="personal_body_post"></app-personal-info>
+        </div>
+    </div>
+
+</div>

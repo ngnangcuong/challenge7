@@ -1,0 +1,43 @@
+<div *ngIf="!author; else Confirm">
+    <div mat-dialog-content>
+        <h3>Bạn không thể thực hiện hoạt động</h3>
+    </div>
+    <mat-dialog-actions>
+        <button mat-raised-button mat-dialog-close>Đóng</button>
+    </mat-dialog-actions>
+</div>
+
+<ng-template #Confirm>
+    <div *ngIf="type == 'deletePost'">
+        <div mat-dialog-content>
+             <h3>Bạn có chắc chắn xóa bài đăng này không?</h3>
+        </div>
+    
+         <mat-dialog-actions>
+             <button mat-raised-button (click)="accept()" color="warn">Xóa</button>
+             <button mat-raised-button (click)="close()">Đóng</button>
+         </mat-dialog-actions>
+
+    </div>
+
+    <div *ngIf="type == 'editPost'">
+        <p>Edit Post</p>
+    </div>
+
+    <div class="" *ngIf="type == 'successOperation'">
+        <div mat-dialog-title>Hoàn tất</div>
+        <div mat-dialog-content>Hoạt động thành công</div>
+        <mat-dialog-actions>
+            <button mat-raised-button (click)="close()">Đóng</button>
+        </mat-dialog-actions>
+    </div>
+
+    <div *ngIf="type == 'failedOperation'">
+        <div mat-dialog-title>Lỗi!!</div>
+        <div mat-dialog-content>Hoạt động không thành công</div>
+        <mat-dialog-actions>
+            <button mat-raised-button (click)="close()">Đóng</button>
+        </mat-dialog-actions>
+    </div>
+
+</ng-template>

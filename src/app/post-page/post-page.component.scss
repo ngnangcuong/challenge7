@@ -1,0 +1,18 @@
+.header {
+    position: fixed;
+    z-index: 1;
+}
+
+.post-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.post {
+    position: relative;
+    top: 100px;
+    left: 0;
+    right: 0;   
+    width: 70%;
+
+}

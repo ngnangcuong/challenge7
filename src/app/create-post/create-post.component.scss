@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    transition: 0.14s;
+}
+
+.createPost_wrapper {
+    background-color: #FFF;
+}
+
+.createPost_header {
+    background-color: rgb(247, 247, 247);
+    height: 36px;
+}
+
+.createPost_choice {
+    border: none;
+    outline: none;
+    height: 100%;
+    line-height: 36px;
+    cursor: pointer;
+    background-color: rgb(247, 247, 247);
+    font-weight: 500;
+
+}
+
+.createPost_body {
+    display: flex;
+    padding: 12px;
+    border-bottom: 1px solid #EEE;
+}
+
+.createPost_avatar {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #DDD;
+    margin-right: 12px;
+}
+
+.createPost_textarea > textarea{
+    border: none;
+    width: 100%;
+    outline: none;
+}
+
+.createPost_submit {
+    float: right;
+    margin-top: 12px;
+}
+
+.createPost_textarea > textarea:focus .createPost_submit {
+    display: block;
+}
+
+.createPost_footer {
+    height: 42px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 12px;
+}
+
+.createPost_footer > button {
+    outline: none;
+    border: none;
+    height: 80%;
+    font-weight: 500;
+    cursor: pointer;
+}

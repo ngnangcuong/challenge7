@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    transition: 0.14s;
+}
+
+.avatar_wrapper {
+    background-color: #AAA;
+    padding: 140px 24px 0;
+}
+
+.avatar_info {
+    display: flex;
+    width: 30%;
+    align-items: center;
+    position: relative;
+    bottom: -21px;
+    left: 21px;
+}
+
+.avatar_image {
+    background-color: #EEE;
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+}
+
+.avatar_name {
+    margin-left: 20px;
+    font-size: 21px;
+    color: #FFF;
+    display: flex;
+    font-weight: 400;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.avatar_name p:first-child {
+    font-weight: 500;
+}
+
+.avatar_select {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    background-color: #FFF;
+    height: 36px;
+    margin: 0 -24px;
+}
+
+.avatar_select > div {
+    font-weight: 600;
+    color: rgb(0, 174, 255);
+    width: 10%;
+    border-right: 1px solid #DDD;
+    border-left: 1px solid #DDD;
+    text-align: center;
+    line-height: 36px;
+}
+
+.avatar_select div:hover {
+    cursor: pointer;
+    background-color: #EEE;
+}

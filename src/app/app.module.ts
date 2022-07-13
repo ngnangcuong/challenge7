@@ -17,12 +17,23 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatMenuModule} from '@angular/material/menu'; 
+import {MatDialog, MatDialogModule, MatDialogRef} from '@angular/material/dialog'; 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { PostComponent } from './post/post.component';
 import { HeaderComponent } from './header/header.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { AuthInterceptor } from './auth.interceptor';
+import { NgxCaptchaModule } from 'ngx-captcha';
+import {MatIconModule} from '@angular/material/icon'; 
+import { DialogComponent } from './dialog/dialog.component';
+import { PersonalComponent } from './personal/personal.component';
+import { PersonalAvatarComponent } from './personal-avatar/personal-avatar.component';
+import { CreatePostComponent } from './create-post/create-post.component';
+import { PersonalInfoComponent } from './personal-info/personal-info.component';
+import { PostPageComponent } from './post-page/post-page.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +42,15 @@ import { AuthInterceptor } from './auth.interceptor';
     RegisterComponent,
     HomeComponent,
     PostComponent,
-    HeaderComponent
+    HeaderComponent,
+    DialogComponent,
+    PersonalComponent,
+    PersonalAvatarComponent,
+    CreatePostComponent,
+    PersonalInfoComponent,
+    PostPageComponent,
+    ChangePasswordComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,12 +69,23 @@ import { AuthInterceptor } from './auth.interceptor';
     MatAutocompleteModule,
     InfiniteScrollModule,
     MatMenuModule,
+    MatDialogModule,
+    MatIconModule,
+    NgxCaptchaModule,
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true,
     },
+    {
+      provide: MatDialogRef,
+      useValue: {},
+    },
+    {
+      provide: MatDialog,
+    }
   ],
+  entryComponents:[DialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

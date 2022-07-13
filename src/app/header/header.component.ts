@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable, startWith, map, of } from 'rxjs';
+import { PostService } from '../services/post.service';
 import { SearchService } from '../services/search.service';
 import { UserService } from '../services/user.service';
 
@@ -13,24 +14,27 @@ import { UserService } from '../services/user.service';
 export class HeaderComponent implements OnInit {
 
   @Input()
-  emailUser: string = '';
-
+  surName: string = '';
+  public email: string = '';
   constructor(private fb: FormBuilder,
              private searchService: SearchService,
              private userService: UserService,
+             private postService: PostService,
              private router: Router) { }
 
   ngOnInit(): void {
-    this.filteredOptions = this.searchForm.get('searchBox')!.valueChanges.pipe(startWith(''), map(value => this._filter(value)));
+    this.userService.getMe().subscribe(user => {
+      this.email = user.email;
+    })
+    this.filteredOptions = this.searchBox.valueChanges.pipe(startWith(''), map(value => this._filter(value)));
   }
   
+  searchKeyword: string = '';
   options: string[] = [];
   
   filteredOptions: Observable<string[]> = of();
-  
-  searchForm = this.fb.group({
-    'searchBox': new FormControl(),
-  })
+
+  searchBox = new FormControl();
   
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
